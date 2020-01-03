@@ -1,0 +1,6 @@
+FROM agilesyndrome/python:2.7.17
+
+ARG awscliVersion
+ENV AWSCLI_VERSION=${awscliVersion}
+
+RUN pip install awscli==${AWSCLI_VERSION}

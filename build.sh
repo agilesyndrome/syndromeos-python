@@ -3,9 +3,8 @@
 
 # Generic python verions
 while read v; do
-  PYTHON_VERSION=$v
-  make docker
-  make publish
+  make PYTHON_VERSION=$v docker
+  make PYTHON_VERSION=$v publish
 done <VERSIONS
 
 # Python apps based off those versions

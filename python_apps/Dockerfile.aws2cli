@@ -1,4 +1,4 @@
-FROM agilesyndrome/python:3.8.1
+FROM docker.pkg.github.com/agilesyndrome/syndromeos-python/python:3.8.1
 
 ARG awscliVersion
 ENV AWSCLI_VERSION=${awscliVersion}

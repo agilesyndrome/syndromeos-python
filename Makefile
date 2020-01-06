@@ -1,5 +1,5 @@
 docker:
-	docker build --build-arg pythonVersion=$(PYTHON_VERSION) -t agilesyndrome/$(SYNDROME_PROJECT):$(PYTHON_VERSION) .
+	docker build --build-arg pythonVersion=$(PYTHON_VERSION) -t docker.pkg.github.com/agilesyndrome/syndromeos-python/python:$(PTYHON_VERSION) .
 
 build: docker
 
@@ -8,4 +8,4 @@ clean:
 	mkdir -p built
 
 publish: clean
-	docker push agilesyndrome/$(SYNDROME_PROJECT):$(PYTHON_VERSION)	
+	docker push docker.pkg.github.com/agilesyndrome/syndromeos-python/python:$(PYTHON_VERSION)

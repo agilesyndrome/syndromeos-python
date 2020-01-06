@@ -1,4 +1,4 @@
-FROM agilesyndrome/syndromeos:latest
+FROM FROM docker.pkg.github.com/agilesyndrome/syndromeos-base/syndromeos:latest
 
 ARG pythonVersion=3.8.1
 
@@ -6,11 +6,11 @@ ENV PYTHON_VERSION=${pythonVersion}
 
 RUN apt-get update \
  && apt-get install -y \
-   xz-utils
+   xz-utils \
+ && apt-get clean all \
+ && rm -rf /var/lib/apt/lists/
 
 WORKDIR /python
-
-RUN ln -s /usr/openssl /usr/local/ssl
 
 RUN curl -LO https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz \
  && tar --strip-components 1 -xzvf Python-${PYTHON_VERSION}.tgz \

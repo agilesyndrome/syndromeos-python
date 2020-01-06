@@ -17,7 +17,5 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.GITHUB_BUILDER }}
         DOCKER_PASSWORD: ${{ secrets.GITHUB_BUILDER_TOKEN }}
     - name: Build the Docker image
-      run: |
-        . ./.env
-	./build.sh
+      run: ./build.sh
 

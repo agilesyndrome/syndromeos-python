@@ -1,5 +1,5 @@
 docker:
-	docker build --build-arg pythonVersion=$(PYTHON_VERSION) -t docker.pkg.github.com/agilesyndrome/syndromeos-python/python:$(PTYHON_VERSION) .
+	docker build --build-arg pythonVersion=$(PYTHON_VERSION) -t docker.pkg.github.com/agilesyndrome/syndromeos-python/python:$(PYTHON_VERSION) .
 
 build: docker
 

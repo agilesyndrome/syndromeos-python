@@ -1,4 +1,4 @@
-FROM FROM docker.pkg.github.com/agilesyndrome/syndromeos-base/syndromeos:latest
+FROM docker.pkg.github.com/agilesyndrome/syndromeos-base/syndromeos:latest
 
 ARG pythonVersion=3.8.1
 

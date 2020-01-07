@@ -2,6 +2,7 @@ FROM docker.pkg.github.com/agilesyndrome/syndromeos-base/syndromeos:latest
 
 ARG pythonVersion=3.8.1
 
+
 ENV PYTHON_VERSION=${pythonVersion}
 
 RUN apt-get update \
@@ -14,6 +15,9 @@ WORKDIR /python
 
 RUN curl -LO https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz \
  && tar --strip-components 1 -xzvf Python-${PYTHON_VERSION}.tgz \
+ && export LDFLAGS="-L${OPENSSL_PATH}/lib/" \
+ && export LD_LIBRARY_PATH="${OPENSSL_PATH}/lib/" \
+ && export CPPFLAGS="-I${OPENSSL_PATH}/include -I${OPENSSL_PATH}/include/openssl" \
  && ./configure --prefix=/python \
  && make \
  && make install \

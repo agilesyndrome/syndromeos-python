@@ -21,7 +21,7 @@ jobs:
     - name: Build Python 3.8.1
       run: make PYTHON_VERSION=3.8.1 ci
     - name: Jupyter Notebook v1.2.4
-      run: make TOOL_NAME=jupyterlab TOOL_VERSION=1.2.4 pip3tool
+      run: make TOOL_NAME=jupyterlab TOOL_VERSION=1.2.4 -C python_apps pip3tool
     - name: AWSCLI v1.16.310
       run: make AWSCLI_VERSION=1.16.310 -C python_apps awscli
     - name: AWSCLI v1.11.159

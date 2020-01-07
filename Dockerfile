@@ -13,11 +13,13 @@ RUN apt-get update \
 
 WORKDIR /python
 
-RUN curl -LO https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz \
+ENV LDFLAGS "-L${OPENSSL_PATH}/lib/"
+ENV LD_LIBRARY_PATH "${OPENSSL_PATH}/lib/"
+ENV CPPFLAGS "-I${OPENSSL_PATH}/include -I${OPENSSL_PATH}/include/openssl"
+
+RUN env \
+ && curl -LO https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz \
  && tar --strip-components 1 -xzvf Python-${PYTHON_VERSION}.tgz \
- && export LDFLAGS="-L${OPENSSL_PATH}/lib/" \
- && export LD_LIBRARY_PATH="${OPENSSL_PATH}/lib/" \
- && export CPPFLAGS="-I${OPENSSL_PATH}/include -I${OPENSSL_PATH}/include/openssl" \
  && ./configure --prefix=/python \
  && make \
  && make install \

@@ -1,3 +1,6 @@
+pip3tool:
+	docker build -t docker.pkg.github.com/agilesyndrome/syndromeos-python/$(TOOL_NAME):$(TOOL_VERSION) --build-arg toolVersion=$(TOOL_VERSION) --build-arg toolName=$(TOOL_NAME) -f Dockerfile.pip3tool .
+        docker push docker.pkg.github.com/agilesyndrome/syndromeos-python/$(TOOL_NAME):$(TOOL_VERSION)
 awscli:
 	docker build -t docker.pkg.github.com/agilesyndrome/syndromeos-python/awscli:$(AWSCLI_VERSION) --build-arg awscliVersion=$(AWSCLI_VERSION) -f Dockerfile.awscli .
 	docker push docker.pkg.github.com/agilesyndrome/syndromeos-python/awscli:$(AWSCLI_VERSION)

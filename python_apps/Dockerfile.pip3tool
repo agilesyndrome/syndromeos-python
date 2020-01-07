@@ -1,0 +1,8 @@
+FROM docker.pkg.github.com/agilesyndrome/syndromeos-python/python:3.8.1
+
+ARG toolName
+ARG toolVersion
+ENV TOOL_NAME=${toolName}
+ENV TOOL_VERSION=${toolVersion}
+
+RUN pip install ${TOOL_NAME}==${TOOL_VERSION}

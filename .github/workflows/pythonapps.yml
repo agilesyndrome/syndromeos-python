@@ -20,21 +20,3 @@ jobs:
       run: make PYTHON_VERSION=2.7.17 ci
     - name: Build Python 3.8.1
       run: make PYTHON_VERSION=3.8.1 ci
-  apps:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - uses: azure/docker-login@v1
-      with:
-        login-server: 'docker.pgk.github.com' # default: index.docker.io
-        username: ${{ secrets.GITHUB_BUILDER }}
-        password: ${{ secrets.GITHUB_BUILDER_TOKEN }}
-    - name: Jupyter Notebook v1.2.4
-      run: make TOOL_NAME=jupyterlab TOOL_VERSION=1.2.4 -C python_apps piptool
-    - name: AWSCLI v1.16.310
-      run: make TOOL_NAME=awscli TOOL_VERSION=1.16.310 -C python_apps piptool
-    - name: AWSCLI v1.11.159 
-      run: make TOOL_NAME=awscli TOOL_VERSION=1.11.159 -C python_apps piptool
-    - name: AWSCLI v2.0.0dev
-      run: make AWSCLI_VERSION=2.0.0dev -C python_apps aws2cli 

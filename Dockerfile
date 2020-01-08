@@ -25,8 +25,5 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ bionic main" >> /etc/apt/sou
 
 ENV PATH ${PATH}:/python:/python/bin
 
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
- && python get-pip.py
-
 WORKDIR /app
 

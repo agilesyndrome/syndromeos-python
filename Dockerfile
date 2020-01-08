@@ -15,9 +15,8 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ bionic main" >> /etc/apt/sou
  && apt-get -y build-dep python${PYTHON_BUILDDEP} \
  && curl -LO https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz \
  && tar --strip-components 1 -xzvf Python-${PYTHON_VERSION}.tgz \
- && ./configure --prefix=/python --with-pydebug --with-openssl=${OPENSSL_PATH} \
  && ./configure --prefix=/python --enable-optimizations \
- && make -s -j2 \
+ && make -s -j4 \
  && make install \
  && ls -l /python \
  && rm -rf /build \

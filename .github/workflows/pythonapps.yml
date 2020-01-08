@@ -17,6 +17,6 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.GITHUB_BUILDER }}
         DOCKER_PASSWORD: ${{ secrets.GITHUB_BUILDER_TOKEN }}
     - name: Build Python 2.7.17
-      run: make PYTHON_VERSION=2.7.17 ci
+      run: make PYTHON_VERSION=2.7.17 PYTHON_BUILDDEP=2.7 ci
     - name: Build Python 3.8.1
-      run: make PYTHON_VERSION=3.8.1 ci
+      run: make PYTHON_VERSION=3.8.1 PYTHON_BUILDDEP=3.6 ci

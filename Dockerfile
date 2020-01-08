@@ -12,7 +12,7 @@ WORKDIR /build
 RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ bionic main" >> /etc/apt/sources.list \
  && apt-get update \
  && apt-get install -y xz-utils uuid-dev \
- && apt-get -y build-dep python${PYTHON_BUILDDEP}
+ && apt-get -y build-dep python${PYTHON_BUILDDEP} \
  && curl -LO https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz \
  && tar --strip-components 1 -xzvf Python-${PYTHON_VERSION}.tgz \
  && ./configure --prefix=/python --with-pydebug --with-openssl=${OPENSSL_PATH} \

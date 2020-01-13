@@ -22,6 +22,7 @@ RUN echo "deb-src http://archive.ubuntu.com/ubuntu/ bionic main" >> /etc/apt/sou
  && rm -rf /build \
  && apt-get clean all \
  && rm -rf /var/lib/apt/lists/
+ && if [ ! -f /usr/bin/python ]; then ln -s /usr/bin/python3 /usr/bin/python; fi
 
 ENV PATH ${PATH}:/python:/python/bin
 
